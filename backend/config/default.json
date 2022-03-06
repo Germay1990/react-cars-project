@@ -1,0 +1,4 @@
+{
+    "mongoDBStringUrl": "mongodb://localhost/playground",
+    "port": "3002"
+}
