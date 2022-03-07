@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import BrandInput from "./brandInput";
 import CategoryInput from "./categoryInput";
@@ -6,24 +6,13 @@ import axios from "axios";
 import Button from "@mui/material/Button";
 
 const AddCar = (props) => {
-  // let state = {
-  //   brandName: "",
-  //   model: "",
-  //   price: 0,
-  //   category: "",
-  //   imageUrl: "",
-  // };
-  let [isEditing, setIsEditing] = useState(false);
   let history = useHistory();
 
   let handleChange = (evt) => {
-    // const value = evt.target.value;
-    // this.setState({ [evt.target.name]: value });
   };
 
   let handleSubmit = (evt) => {
     evt.preventDefault();
-    setIsEditing(true);
     let brandName = evt.target.brandName.value;
     let model = evt.target.model.value;
     let price = evt.target.price.value;
@@ -41,7 +30,6 @@ const AddCar = (props) => {
         })
       .then((res) => {
         console.log(res);
-        setIsEditing(false);
         history.push("/");
       })
       .catch((err) => {
@@ -52,7 +40,7 @@ const AddCar = (props) => {
   };
 
   return (
-    <div className="side-nav">
+    <div className="edit-form">
       <h2 className="form-input"> {props.title}</h2>
       <form onSubmit={handleSubmit}>
         <BrandInput

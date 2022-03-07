@@ -29,10 +29,10 @@ body {
     /* height: 1000px */
 }
 
+
 .container {
     background-color: #E3E1D6;
     text-align: center;
-    /* margin-left: 0px; */
     display: flex;
 }
 
@@ -71,9 +71,11 @@ img.itemImage:hover {
 }
 
 .side-nav {
+    margin-left: 20px;
     padding: 12px 15px;
-    width: 25%;
+    /* width: 20%; */
 }
+
 
 .edit-form {
     margin: auto;

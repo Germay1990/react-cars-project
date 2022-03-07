@@ -5,7 +5,7 @@ import ItemContainer from "./itemContainer";
 function Content(props) {
   return (
     <div className="contant">
-      {/* <SideNav title={"Add new car"}></SideNav> */}
+      <SideNav title={"Add new car"}></SideNav>
       <ItemContainer></ItemContainer>
     </div>
   );

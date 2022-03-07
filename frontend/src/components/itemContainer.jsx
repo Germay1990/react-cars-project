@@ -11,8 +11,7 @@ function ItemsContainer(props) {
       <ProductsList></ProductsList>
       
       <div>
-        <p>Add New</p>
-        <Button variant="contained">
+        <Button style={{ marginTop:"10px" }} variant="contained">
           <Link to="/addCar">
             <AddIcon />
           </Link>

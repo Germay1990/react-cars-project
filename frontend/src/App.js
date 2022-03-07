@@ -18,7 +18,7 @@ function App() {
             <EditProduct />
           </Route>
           <Route exact path="/addCar">
-            <AddCar title={"Add car"}/>
+            <AddCar title={"Add New Car"}/>
           </Route>
         </Switch>
         <Footer />
