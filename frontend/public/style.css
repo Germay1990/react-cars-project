@@ -32,12 +32,14 @@ body {
 .container {
     background-color: #E3E1D6;
     text-align: center;
-    margin-left: 0px;
+    /* margin-left: 0px; */
     display: flex;
 }
 
 .row {
-    padding-top: 12px;
+    padding-top: 20px;
+    margin-bottom: 25px;
+
 }
 
 .div-item {

@@ -44,7 +44,7 @@ const ProductsList = () => {
   };
 
   return (
-    <div className="container">
+    <div>
       <div className="row">
         {error && <div>{error}</div>}
         {isPending && <h2>Loading...</h2>}

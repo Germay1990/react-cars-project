@@ -6,8 +6,10 @@ import AddIcon from "@mui/icons-material/Add";
 
 function ItemsContainer(props) {
   return (
-    <div id="itemsArea" className="container">
+    // <div id="itemsArea" className="container">
+    <div className="container">
       <ProductsList></ProductsList>
+      
       <div>
         <p>Add New</p>
         <Button variant="contained">
