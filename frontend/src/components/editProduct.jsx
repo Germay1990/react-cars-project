@@ -4,7 +4,6 @@ import BrandInput from "./brandInput";
 import CategoryInput from "./categoryInput";
 import useFetch from "./useFetch";
 import axios from "axios";
-
 import Button from "@mui/material/Button";
 
 const EditProduct = () => {

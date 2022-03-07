@@ -3,6 +3,7 @@ import Content from "./components/content";
 import Footer from "./components/footer";
 import EditProduct from "./components/editProduct";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import AddCar from "./components/addCar";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
           </Route>
           <Route exact path="/editProduct/:id">
             <EditProduct />
+          </Route>
+          <Route exact path="/add">
+            <AddCar />
           </Route>
         </Switch>
         <Footer />

@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Button from "@mui/material/Button";
 
-import IconButton from "@mui/material/IconButton";
-import DeleteIcon from "@mui/icons-material/Delete";
 
 function Product(props) {
   let [item, setItem] = useState(null);

@@ -33,6 +33,7 @@ body {
     background-color: #E3E1D6;
     text-align: center;
     margin-left: 0px;
+    display: flex;
 }
 
 .row {
