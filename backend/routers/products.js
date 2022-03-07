@@ -67,8 +67,14 @@ router.get("/:id", async (req, res) => {
 
 //Add product
 router.post("/", async (req, res) => {
-  let product = new Product(req.body);
-  await product.save();
+  let _brandName = req.body.brandName;
+  let _model = req.body.model;
+  let _price = req.body.price;
+  let _category = req.body.category;
+  let _imageUrl = req.body.imageUrl;
+  createProduct(_brandName, _model, _price, _category, _imageUrl);
+  // let product = new Product(req.body);
+  // await product.save();
 });
 
 //Update product
@@ -95,6 +101,5 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   await Product.deleteOne({ _id: req.params.id });
 });
-
 
 module.exports = router;

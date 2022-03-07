@@ -17,8 +17,8 @@ function App() {
           <Route exact path="/editProduct/:id">
             <EditProduct />
           </Route>
-          <Route exact path="/add">
-            <AddCar />
+          <Route exact path="/addCar">
+            <AddCar title={"Add car"}/>
           </Route>
         </Switch>
         <Footer />
