@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { validate,ProductModel } = require("../models/product");
-
+const { validate, ProductModel } = require("../models/product");
 
 async function createProduct(_brandName, _model, _price, _category, _imageUrl) {
   const product = new Product({
@@ -56,16 +55,21 @@ router.get("/:id", async (req, res) => {
 
 //Add product
 router.post("/", async (req, res) => {
+  //Checking inputs validation, if error!=undefined(null) => meaning: error exist
   let { error } = validate(req.body);
-  if (error != undefined && error.details !== undefined) {
+  if (error !== undefined && error.details !== undefined) {
     return res.status(400).send(error.details[0].message);
   }
+  //Check if product with this brand name already exist in DB
   let _brandName = req.body.brandName;
   let product = await ProductModel.findOne({ brandName: _brandName });
 
+  // if product !==null => meaning: product exist
   if (product !== null) {
     return res.status(400).send("product already exist!");
   }
+
+  // if product not exist create new product model and save him to DB
   product = new ProductModel({
     brandName: req.body.brandName,
     model: req.body.model,
@@ -73,18 +77,8 @@ router.post("/", async (req, res) => {
     category: req.body.category,
     imageUrl: req.body.imageUrl,
   });
-
   let result = await product.save();
   return res.send(result);
-  // let _brandName = req.body.brandName;
-  // let _model = req.body.model;
-  // let _price = req.body.price;
-  // let _category = req.body.category;
-  // let _imageUrl = req.body.imageUrl;
-  // createProduct(_brandName, _model, _price, _category, _imageUrl);
-
-  // let product = new Product(req.body);
-  // await product.save();
 });
 
 //Update product
