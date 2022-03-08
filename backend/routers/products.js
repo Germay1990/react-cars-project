@@ -1,17 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const { validate,ProductModel } = require("../models/product");
 
-const mongoose = require("mongoose");
-
-const productSchema = new mongoose.Schema({
-  brandName: String,
-  model: String,
-  price: Number,
-  category: String,
-  imageUrl: String,
-});
-
-const Product = mongoose.model("Product", productSchema);
 
 async function createProduct(_brandName, _model, _price, _category, _imageUrl) {
   const product = new Product({
@@ -53,7 +43,7 @@ async function updateProduct(
 }
 
 //Get all products
-router.get("/", async function (req, res) {
+router.get("/", async (req, res) => {
   let products = await Product.find();
   res.send(products);
 });
@@ -62,17 +52,37 @@ router.get("/", async function (req, res) {
 router.get("/:id", async (req, res) => {
   let product = await Product.find({ _id: req.params.id });
   res.send(product);
-  // console.log(product);
 });
 
 //Add product
 router.post("/", async (req, res) => {
+  let { error } = validate(req.body);
+  if (error != undefined && error.details !== undefined) {
+    return res.status(400).send(error.details[0].message);
+  }
   let _brandName = req.body.brandName;
-  let _model = req.body.model;
-  let _price = req.body.price;
-  let _category = req.body.category;
-  let _imageUrl = req.body.imageUrl;
-  createProduct(_brandName, _model, _price, _category, _imageUrl);
+  let product = await ProductModel.findOne({ brandName: _brandName });
+
+  if (product !== null) {
+    return res.status(400).send("product already exist!");
+  }
+  product = new ProductModel({
+    brandName: req.body.brandName,
+    model: req.body.model,
+    price: req.body.price,
+    category: req.body.category,
+    imageUrl: req.body.imageUrl,
+  });
+
+  let result = await product.save();
+  return res.send(result);
+  // let _brandName = req.body.brandName;
+  // let _model = req.body.model;
+  // let _price = req.body.price;
+  // let _category = req.body.category;
+  // let _imageUrl = req.body.imageUrl;
+  // createProduct(_brandName, _model, _price, _category, _imageUrl);
+
   // let product = new Product(req.body);
   // await product.save();
 });

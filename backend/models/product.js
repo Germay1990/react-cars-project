@@ -22,16 +22,16 @@ const productSchema = new mongoose.Schema({
 const Product = mongoose.model("Product", productSchema);
 
 function validateProduct(product) {
-  const joinSchema = {
-    brandName: Joi.String(),
-    model: Joi.String(),
+  const joinSchema = Joi.object({
+    brandName: Joi.string(),
+    model: Joi.string(),
     price: Joi.number(),
-    category: Joi.String(),
-    imageUrl: Joi.String(),
-  };
+    category: Joi.string(),
+    imageUrl: Joi.string(),
+  });
 
-  return Joi.valid(product, joinSchema);
+  return joinSchema.validate(product);
 }
 
 exports.ProductModel = Product;
-exports.valid = validateProduct;
+exports.validate = validateProduct;
