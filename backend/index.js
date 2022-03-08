@@ -1,15 +1,12 @@
 const config = require("config");
 const mongoose = require("mongoose");
-const bodyParser = require('body-parser');
-
 const express = require("express");
 const products = require("./routers/products")
 const app = express();
 const cors = require("cors");
 
-app.use(express.json());
 app.use(cors());
-// app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.json());
 
 
 app.use("/products", products);
