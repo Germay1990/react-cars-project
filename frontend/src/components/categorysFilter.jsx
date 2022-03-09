@@ -85,7 +85,7 @@ const names = [
     "Volvo",
 ];
 
-export default function BrandsFilter() {
+export default function CategorysFilter() {
   const [personName, setPersonName] = React.useState([]);
 
   const handleChange = (event) => {
@@ -101,7 +101,7 @@ export default function BrandsFilter() {
   return (
     <div>
       <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="demo-multiple-checkbox-label">Choose brand</InputLabel>
+        <InputLabel id="demo-multiple-checkbox-label">Choose category</InputLabel>
         <Select
           labelId="demo-multiple-checkbox-label"
           id="demo-multiple-checkbox"
