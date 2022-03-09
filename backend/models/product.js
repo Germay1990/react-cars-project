@@ -2,14 +2,14 @@ const config = require("config");
 const Joi = require("joi");
 const mongoose = require("mongoose");
 
-mongoose
-  .connect(config.get("mongoDBStringUrl"))
-  .then(() => {
-    console.log("connected to mongoDB...");
-  })
-  .catch((err) => {
-    console.log("could not connect to mongoDB", err);
-  });
+// mongoose
+//   .connect(config.get("mongoDBStringUrl"))
+//   .then(() => {
+//     console.log("connected to mongoDB...");
+//   })
+//   .catch((err) => {
+//     console.log("could not connect to mongoDB", err);
+//   });
 
 const productSchema = new mongoose.Schema({
   brandName: String,

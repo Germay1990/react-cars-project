@@ -8,8 +8,7 @@ import Button from "@mui/material/Button";
 const AddCar = (props) => {
   let history = useHistory();
 
-  let handleChange = (evt) => {
-  };
+  let handleChange = (evt) => {};
 
   let handleSubmit = (evt) => {
     evt.preventDefault();
@@ -18,25 +17,24 @@ const AddCar = (props) => {
     let price = evt.target.price.value;
     let category = evt.target.category.value;
     let imageUrl = evt.target.imageUrl.value;
-
+    
     axios
-      .post(
-        "http://localhost:3002/products", {
-          brandName,
-          model,
-          price,
-          imageUrl,
-          category,
-        })
+      .post("http://localhost:3002/products", {
+        brandName,
+        model,
+        price,
+        imageUrl,
+        category,
+      })
       .then((res) => {
         console.log(res);
-        history.push("/");
+        // history.push("/");
       })
       .catch((err) => {
         console.log(err);
       });
     //Clear all form inputs field
-    evt.target.reset();
+    // evt.target.reset();
   };
 
   return (

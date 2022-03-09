@@ -26,7 +26,7 @@ async function updateProduct(
   _category,
   _imageUrl
 ) {
-  let result = await Product.updateOne(
+  let result = await ProductModel.updateOne(
     { _id: _id },
     {
       $set: {
@@ -43,13 +43,13 @@ async function updateProduct(
 
 //Get all products
 router.get("/", async (req, res) => {
-  let products = await Product.find();
+  let products = await ProductModel.find();
   res.send(products);
 });
 
 //Get product by id
 router.get("/:id", async (req, res) => {
-  let product = await Product.find({ _id: req.params.id });
+  let product = await ProductModel.find({ _id: req.params.id });
   res.send(product);
 });
 
@@ -62,13 +62,18 @@ router.post("/", async (req, res) => {
   }
   //Check if product with this brand name already exist in DB
   let _brandName = req.body.brandName;
-  let product = await ProductModel.findOne({ brandName: _brandName });
+  let _model = req.body.model;
+  let product = await ProductModel.findOne({
+    brandName: _brandName,
+    model: _model,
+  });
 
   // if product !==null => meaning: product exist
   if (product !== null) {
+    console.log("product already exist!")
     return res.status(400).send("product already exist!");
+    return res.status(400).send({message:"product already exist!"});
   }
-
   // if product not exist create new product model and save him to DB
   product = new ProductModel({
     brandName: req.body.brandName,
@@ -103,7 +108,7 @@ router.put("/:id", async (req, res) => {
 
 //Remove product
 router.delete("/:id", async (req, res) => {
-  await Product.deleteOne({ _id: req.params.id });
+  await ProductModel.deleteOne({ _id: req.params.id });
 });
 
 module.exports = router;

@@ -6,13 +6,13 @@ class SideNav extends Component {
     return (
       <div className="side-nav">
         <form action="">
-          <div class="form-group" style={{ display: "flex" }}>
+          <div className="form-group" style={{ display: "flex" }}>
             <label> Price</label>
             <input type="number" min={1000} placeholder="MIN" />
             <input type="number" min={1000} placeholder="MAX" />
           </div>
 
-          <div class="form-group" style={{ display: "flex" }}>
+          <div className="form-group" style={{ display: "flex" }}>
             <label> Year</label>
             <select>
               <option>From</option>
@@ -30,7 +30,7 @@ class SideNav extends Component {
           max={100000}
         /> */}
 
-          <div class="form-group" style={{ display: "inline-flex" }}>
+          <div className="form-group" style={{ display: "inline-flex" }}>
             <label>Brand</label>
             <MultipleSelectCheckmarks></MultipleSelectCheckmarks>
           </div>

@@ -1,4 +1,5 @@
 {
+    "node_env": "development",
     "mongoDBStringUrl": "mongodb://localhost/playground",
     "port": "3002"
 }
