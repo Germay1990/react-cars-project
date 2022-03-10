@@ -19,73 +19,19 @@ const MenuProps = {
 };
 
 const names = [
-    "Abarth",
-    "Alfa Romeo",
-    "Aston Martin",
-    "Audi",
-    "Bentley",
-    "BMW",
-    "Bugatti",
-    "Cadillac",
-    "Chevrolet",
-    "Chrysler",
-    "Citroën",
-    "Dacia",
-    "Daewoo",
-    "Daihatsu",
-    "Dodge",
-    "Donkervoort",
-    "DS",
-    "Ferrari",
-    "Fiat",
-    "Fisker",
-    "Ford",
-    "Honda",
-    "Hummer",
-    "Hyundai",
-    "Infiniti",
-    "Iveco",
-    "Jaguar",
-    "Jeep",
-    "Kia",
-    "KTM",
-    "Lada",
-    "Lamborghini",
-    "Lancia",
-    "Land Rover",
-    "Landwind",
-    "Lexus",
-    "Lotus",
-    "Maserati",
-    "Maybach",
-    "Mazda",
-    "McLaren",
-    "Mercedes-Benz",
-    "MG",
-    "Mini",
-    "Mitsubishi",
-    "Morgan",
-    "Nissan",
-    "Opel",
-    "Peugeot",
-    "Porsche",
-    "Renault",
-    "Rolls-Royce",
-    "Rover",
-    "Saab",
-    "Seat",
-    "Skoda",
-    "Smart",
-    "SsangYong",
-    "Subaru",
-    "Suzuki",
-    "Tesla",
-    "Toyota",
-    "Volkswagen",
-    "Volvo",
+  "Oliver Hansen",
+  "Van Henry",
+  "April Tucker",
+  "Ralph Hubbard",
+  "Omar Alexander",
+  "Carlos Abbott",
+  "Miriam Wagner",
+  "Bradley Wilkerson",
+  "Virginia Andrews",
+  "Kelly Snyder"
 ];
 
-export default function CategorysFilter() {
+export default function SelectFilter() {
   const [personName, setPersonName] = React.useState([]);
 
   const handleChange = (event) => {
@@ -100,15 +46,15 @@ export default function CategorysFilter() {
 
   return (
     <div>
-      <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="demo-multiple-checkbox-label">Choose category</InputLabel>
+      <FormControl sx={{ m: 1, width: 105 }}>
+        <InputLabel id="demo-multiple-checkbox-label">Tag</InputLabel>
         <Select
           labelId="demo-multiple-checkbox-label"
           id="demo-multiple-checkbox"
           multiple
           value={personName}
           onChange={handleChange}
-          // input={<OutlinedInput label="Tag" />}
+          input={<OutlinedInput label="Tag" />}
           renderValue={(selected) => selected.join(", ")}
           MenuProps={MenuProps}
         >

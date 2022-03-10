@@ -76,11 +76,12 @@ img.itemImage:hover {
     width: 18%;
 }
 
-.form-group{
+.form-group {
     margin-top: 15px;
 }
-.year-input select{
- /* width: 20; */
+
+.year-input select {
+    /* width: 20; */
 }
 
 

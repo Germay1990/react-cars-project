@@ -26,9 +26,8 @@ module.exports = {
 
     // if product !==null => meaning: product exist
     if (product !== null) {
-      console.log("product already exist!");
       return res.status(400).send("product already exist!");
-      return res.status(400).send({ message: "product already exist!" });
+      // return res.status(400).send({ message: "product already exist!" });
     }
     // if product not exist create new product model and save him to DB
     product = new ProductModel({

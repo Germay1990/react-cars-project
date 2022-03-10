@@ -4,6 +4,7 @@ import Footer from "./components/footer";
 import EditProduct from "./components/editProduct";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import AddCar from "./components/addCar";
+import ResultsPage from "./components/resultsPage";
 
 function App() {
   return (
@@ -18,7 +19,10 @@ function App() {
             <EditProduct />
           </Route>
           <Route exact path="/addCar">
-            <AddCar title={"Add New Car"}/>
+            <AddCar title={"Add New Car"} />
+          </Route>
+          <Route exact path="/results">
+            <ResultsPage />
           </Route>
         </Switch>
         <Footer />

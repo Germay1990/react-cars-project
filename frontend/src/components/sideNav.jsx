@@ -1,58 +1,92 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
-import BrandsFilter from "./brandFilter";
-import ModelsFilter from "./modelsFilter";
-import CategorysFilter from "./categorysFilter";
-class SideNav extends Component {
-  render() {
-    return (
-      <div className="side-nav">
-        <form action="">
-          <div className="form-group">
-            <label>Brand</label>
-            <BrandsFilter size="small"></BrandsFilter>
+import { Link } from "react-router-dom";
+import SearchIcon from "@mui/icons-material/Search";
+import SelectFilter from "./selectFilter"
+const SideNav = () => {
+  let [minPrice, setMinPrice] = useState(1000);
+  let [maxPrice, setMaxPrice] = useState(1000000);
+
+  let handleChange = (evt) => {
+    let val = evt.target.value;
+    let name = evt.target.name;
+
+    switch (name) {
+      case "min":
+        setMinPrice(val);
+        break;
+      case "max":
+        setMaxPrice(val);
+      // eslint-disable-next-line no-fallthrough
+      default:
+        break;
+    }
+  };
+
+  return (
+    <div className="side-nav">
+      <form>
+        <SelectFilter></SelectFilter>
+
+        <div className="form-group">
+          <label> Brand</label>
+          <select class="form-select" aria-label="Default select example">
+            <option>Choose brand</option>
+          </select>
+        </div>
+        <div className="form-group">
+          <label> Model</label>
+          <select class="form-select" aria-label="Default select example">
+            <option>Choose model</option>
+          </select>
+        </div>
+        <div className="form-group">
+          <label> Price</label>
+          <div style={{ display: "flex" }}>
+            <input
+              name="min"
+              type="number"
+              min={1000}
+              placeholder="MIN"
+              onChange={handleChange}
+            />
+            <input
+              name="max"
+              type="number"
+              min={1000}
+              placeholder="MAX"
+              onChange={handleChange}
+            />
           </div>
+        </div>
 
-          <div className="form-group">
-            <label>Model</label>
-            <ModelsFilter size="small"></ModelsFilter>
-          </div>
+        <div className="form-group">
+          <label> Category</label>
+          <select class="form-select" aria-label="Default select example">
+            <option>Choose category</option>
+          </select>
+        </div>
 
-
-          <div className="form-group">
-            <label>Category</label>
-            <CategorysFilter size="small"></CategorysFilter>
-          </div>
-
-
-          <div className="form-group">
-            <label> Price</label>
-            <div style={{ display: "flex" }}>
-              <input type="number" min={1000} placeholder="MIN" />
-              <input type="number" min={1000} placeholder="MAX" />
-            </div>
-          </div>
-          {/* <Slider
-          aria-label="Small"
-          valueLabelDisplay="auto"
-          step={1000}
-          marks
-          min={1000}
-          max={100000}
-        /> */}
-
-          <Button
-            style={{ margin: "auto", marginTop: "15px", display: "block" }}
-            variant="contained"
-            color="success"
-            size="small"
+        <Button
+          style={{ margin: "auto", marginTop: "15px", display: "block" }}
+          variant="contained"
+          color="success"
+        >
+          <Link
+            to={{
+              pathname: "/results",
+              state: {
+                min: minPrice,
+                max: maxPrice,
+              },
+            }}
           >
-            search
-          </Button>
-        </form>
-      </div>
-    );
-  }
-}
+            <SearchIcon />
+          </Link>
+        </Button>
+      </form>
+    </div>
+  );
+};
 
 export default SideNav;
