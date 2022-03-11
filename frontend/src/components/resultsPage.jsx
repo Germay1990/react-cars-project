@@ -5,8 +5,6 @@ import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useLocation } from "react-router-dom";
 
-let f = (arr, item) => {};
-
 const ResultsPage = (props) => {
   let [selectedProduct, setSelectedProducts] = useState([]);
   let [canRemove, setCanRemove] = useState(false);
