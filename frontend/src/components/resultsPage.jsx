@@ -5,12 +5,17 @@ import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useLocation } from "react-router-dom";
 
+let f = (arr, item) => {};
+
 const ResultsPage = (props) => {
   let [selectedProduct, setSelectedProducts] = useState([]);
   let [canRemove, setCanRemove] = useState(false);
   const location = useLocation();
+  const { brand } = location.state;
   const { min } = location.state;
   const { max } = location.state;
+  const { category } = location.state;
+
   let {
     data: products,
     isPending,
@@ -53,9 +58,17 @@ const ResultsPage = (props) => {
         {isPending && <h2>Loading...</h2>}
         {products &&
           products
-            .filter((p) => p.price >= min && p.price <= max)
+            .filter(
+              (p) =>
+                p.brandName === brand ||
+                p.category === category ||
+                (p.price >= min && p.price <= max && p.brandName === brand) ||
+                (p.price >= min && p.price <= max && p.category === category)
+            )
             .map((item) => {
               return (
+                // {!item && (<div> <h1>nothing</h1> </div>)}
+
                 <Product
                   key={item._id}
                   productData={item}

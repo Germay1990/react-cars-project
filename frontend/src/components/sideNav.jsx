@@ -2,10 +2,15 @@ import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
-import SelectFilter from "./selectFilter"
+import SelectBrandFilter from "./selectBrandFilter";
+import BrandInput from "./brandInput";
+import CategoryInput from "./categoryInput";
+
 const SideNav = () => {
+  let [brandName, setBrand] = useState("");
   let [minPrice, setMinPrice] = useState(1000);
   let [maxPrice, setMaxPrice] = useState(1000000);
+  let [category, setCategory] = useState("");
 
   let handleChange = (evt) => {
     let val = evt.target.value;
@@ -13,10 +18,17 @@ const SideNav = () => {
 
     switch (name) {
       case "min":
-        setMinPrice(val);
+        setMinPrice(Number(val));
         break;
       case "max":
-        setMaxPrice(val);
+        setMaxPrice(Number(val));
+        break;
+      case "brandName":
+        setBrand(val);
+        break;
+      case "category":
+        setCategory(val);
+        break;
       // eslint-disable-next-line no-fallthrough
       default:
         break;
@@ -26,20 +38,21 @@ const SideNav = () => {
   return (
     <div className="side-nav">
       <form>
-        <SelectFilter></SelectFilter>
-
+        {/* <SelectBrandFilter></SelectBrandFilter> */}
         <div className="form-group">
+          <BrandInput
+            defaultOption={"Choose brand"}
+            handleChange={handleChange}
+          ></BrandInput>
+        </div>
+
+        {/* <div className="form-group">
           <label> Brand</label>
-          <select class="form-select" aria-label="Default select example">
+          <select className="form-select" aria-label="Default select example">
             <option>Choose brand</option>
           </select>
-        </div>
-        <div className="form-group">
-          <label> Model</label>
-          <select class="form-select" aria-label="Default select example">
-            <option>Choose model</option>
-          </select>
-        </div>
+        </div> */}
+
         <div className="form-group">
           <label> Price</label>
           <div style={{ display: "flex" }}>
@@ -53,7 +66,7 @@ const SideNav = () => {
             <input
               name="max"
               type="number"
-              min={1000}
+              min={1000000}
               placeholder="MAX"
               onChange={handleChange}
             />
@@ -61,12 +74,11 @@ const SideNav = () => {
         </div>
 
         <div className="form-group">
-          <label> Category</label>
-          <select class="form-select" aria-label="Default select example">
-            <option>Choose category</option>
-          </select>
+          <CategoryInput
+            defaultOption={"Choose category"}
+            handleChange={handleChange}
+          ></CategoryInput>
         </div>
-
         <Button
           style={{ margin: "auto", marginTop: "15px", display: "block" }}
           variant="contained"
@@ -76,8 +88,10 @@ const SideNav = () => {
             to={{
               pathname: "/results",
               state: {
+                brand: brandName,
                 min: minPrice,
                 max: maxPrice,
+                category:category
               },
             }}
           >

@@ -6,12 +6,11 @@ import AddIcon from "@mui/icons-material/Add";
 
 function ItemsContainer(props) {
   return (
-    // <div id="itemsArea" className="container">
     <div className="container">
       <ProductsList></ProductsList>
       
-      <div>
-        <Button style={{ marginTop:"10px" }} variant="contained">
+      <div className="addProductBtn">
+        <Button style={{ marginTop:"10px" }}  size="large" variant="contained">
           <Link to="/addCar">
             <AddIcon />
           </Link>

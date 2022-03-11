@@ -30,19 +30,4 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
-// async function createProduct(_brandName, _model, _price, _category, _imageUrl) {
-//   const product = new Product({
-//     brandName: _brandName,
-//     model: _model,
-//     price: _price,
-//     category: _category,
-//     imageUrl: _imageUrl,
-//   });
-//   let result = await product.save();
-//   console.log(result);
-// }
 
-// for(let i=0; i<10;i++){
-//   createProduct("Audi", "a", 50000, "SPORT", "https://media-service.carmax.com/img/vehicles/22039075/1_cleaned.jpg?width=800");
-// }
-//     console.log("Success")

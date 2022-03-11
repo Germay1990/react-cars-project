@@ -1,14 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-
 function Product(props) {
-  let [item, setItem] = useState(null);
-
-  useEffect(() => {
-    setItem(props.productData);
-    //  eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  let [item] = useState(props.productData);
 
   let handleDelete = () => {
     fetch("http://localhost:3002/products/" + item._id, {
