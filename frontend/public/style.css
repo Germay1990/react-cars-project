@@ -19,8 +19,22 @@ body {
     height: 40px;
 }
 
-#logo {
-    cursor: pointer;
+.registration-form, .login-form {
+    width: 20%;
+    margin: auto;
+    margin-top: 45px;
+    background-color: #E7E9EB;
+    padding: 12px 20px;
+    border-radius: 4px;
+}
+
+.registration-form h1, .login-form h1 {
+    text-align: center;
+}
+
+.registration-form button, .login-form button {
+    display: block;
+    margin: auto;
 }
 
 .contant {

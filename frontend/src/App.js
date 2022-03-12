@@ -5,6 +5,8 @@ import EditProduct from "./components/editProduct";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import AddCar from "./components/addCar";
 import ResultsPage from "./components/resultsPage";
+import RegistrationPage from "./components/registrationPage";
+import LoginPage from "./components/loginPage";
 
 function App() {
   return (
@@ -14,6 +16,12 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Content />
+          </Route>
+          <Route exact path="/registration">
+            <RegistrationPage />
+          </Route>
+          <Route exact path="/login">
+            <LoginPage />
           </Route>
           <Route exact path="/editProduct/:id">
             <EditProduct />

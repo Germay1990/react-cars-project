@@ -14,6 +14,7 @@ router.post("/", async (req, res) => {
   }
   user = new UserModel(req.body);
   let result = await user.save();
+
   return res.send(result);
 });
 
