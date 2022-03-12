@@ -8,6 +8,10 @@ const {
   updateProduct,
   removeProduct,
 } = require("../controllers/products");
+const { protect } = require("../middlewares/auth");
+
+//Get all products => protected
+// router.get("/", protect, getAllProducts);
 
 //Get all products
 router.get("/", getAllProducts);

@@ -1,5 +1,6 @@
 {
     "node_env": "development",
     "mongoDBStringUrl": "mongodb://localhost/playground",
-    "port": "3002"
+    "port": "3002",
+    "JWT_SECRET": "abc123"
 }
