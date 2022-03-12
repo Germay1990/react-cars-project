@@ -2,16 +2,7 @@ const config = require("config");
 const Joi = require("joi");
 const mongoose = require("mongoose");
 
-// mongoose
-//   .connect(config.get("mongoDBStringUrl"))
-//   .then(() => {
-//     console.log("connected to MongoDB...");
-//   })
-//   .catch((err) => {
-//     console.log("Could not connect to Mongodb", err);
-//   });
-
-const schema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   name: {
     type: String,
     require: true,
@@ -26,7 +17,7 @@ const schema = new mongoose.Schema({
   password: { type: String },
 });
 
-const User = mongoose.model("User", schema);
+const User = mongoose.model("User", userSchema);
 
 function validateUser(user) {
   const joiSchema = Joi.object({
