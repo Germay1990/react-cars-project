@@ -11,7 +11,7 @@ function LoginPage(props) {
     let email = evt.target.email.value;
     let password = evt.target.password.value;
     axios
-      .post("http://localhost:3002/users", {
+      .post("http://localhost:3002/users/login", {
         email,
         password,
       })
@@ -27,12 +27,19 @@ function LoginPage(props) {
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
-        <h1>Login </h1>
+        <h2>Login </h2>
         <label>Email:</label>
-        <input name="email" type="text" placeholder="Enter email" />
+        <input name="email" type="email" placeholder="Enter email" />
         <label>Password:</label>
-        <input name="password" type="text" placeholder="* * * * * * * *" />
-        <button className="btn btn-success"> Login</button>
+        <input
+          name="password"
+          type="password"
+          placeholder="* * * * * * * * *"
+        />
+        <button className="btn btn-success" type="submit">
+          {" "}
+          Submit
+        </button>
       </form>
     </div>
   );

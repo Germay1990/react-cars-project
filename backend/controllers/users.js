@@ -7,7 +7,6 @@ module.exports = {
   registerUser: async (req, res) => {
     let { error } = validate(req.body);
     if (error !== undefined && error.details !== undefined) {
-      console.log(req.body);
       return res.status(400).send(error.details[0].message);
     }
     let { name, email, password } = req.body;

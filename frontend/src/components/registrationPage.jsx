@@ -29,14 +29,22 @@ function RegistrationPage(props) {
   return (
     <div className="registration-container">
       <form className="registration-form" onSubmit={handleSubmit}>
-        <h1>Registration </h1>
+      <h2>Registration </h2>
+      <p>create an account</p>
         <label>Name:</label>
-        <input name="name" type="text" placeholder="Enter user name" />
+        <input name="name" type="email" placeholder="Enter user name" />
         <label>Email:</label>
         <input name="email" type="text" placeholder="Enter email" />
         <label>Password:</label>
-        <input name="password" type="text" placeholder="* * * * * * * *" />
-        <button className="btn btn-success"> Registration</button>
+        <input
+          name="password"
+          type="password"
+          placeholder="* * * * * * * * *"
+        />
+        <button className="btn btn-success" type="submit">
+          {" "}
+          Submit
+        </button>
       </form>
     </div>
   );
