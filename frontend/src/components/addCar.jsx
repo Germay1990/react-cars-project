@@ -28,13 +28,13 @@ const AddCar = (props) => {
       })
       .then((res) => {
         console.log(res);
-        // history.push("/");
+        history.push("/"); 
       })
       .catch((err) => {
-        console.log(err);
+        alert(err.response.data);
       });
-    //Clear all form inputs field
-    // evt.target.reset();
+    // Clear all form inputs field
+    evt.target.reset();
   };
 
   return (

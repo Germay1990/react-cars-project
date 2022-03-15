@@ -23,7 +23,7 @@ module.exports = {
       brandName: _brandName,
       model: _model,
     });
-
+ 
     // if product !==null => meaning: product exist
     if (product !== null) {
       return res.status(400).send("product already exist!");

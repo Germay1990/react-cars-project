@@ -1,10 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Header(props) {
   return (
     <div className="header">
-      <nav className="navbar main-navbar-custom">
-        <form style={{ display: "block", margin: "auto" }} className="d-flex">
+      <nav className="main-navbar-custom">
+      <button><Link to="/">Home</Link></button>
+      <button><Link to="/login">Login</Link></button>
+      <button><Link to="/registration">Registration</Link></button>
+
+
+        {/* <form style={{ display: "block", margin: "auto" }} className="d-flex">
           <input
             style={{ width: "550px" }}
             className="form-control me-2"
@@ -15,7 +21,7 @@ function Header(props) {
           <button className="btn btn-outline-success" type="submit">
             Search
           </button>
-        </form>
+        </form> */}
       </nav>
       <nav className="navbar sub-navbar-custom"></nav>
     </div>
