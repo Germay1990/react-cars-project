@@ -19,22 +19,23 @@ function RegistrationPage(props) {
       })
       .then((res) => {
         console.log(res);
-        history.push("/");
+        history.push("/login");
       })
       .catch((err) => {
-        console.log(err);
+        alert(err.response.data);
       });
+    evt.target.reset();
   };
 
   return (
     <div className="registration-container">
       <form className="registration-form" onSubmit={handleSubmit}>
-      <h2>Registration </h2>
-      <p>create an account</p>
+        <h2>Registration </h2>
+        <p>create an account</p>
         <label>Name:</label>
-        <input name="name" type="email" placeholder="Enter user name" />
+        <input name="name" type="text" placeholder="Enter your name" />
         <label>Email:</label>
-        <input name="email" type="text" placeholder="Enter email" />
+        <input name="email" type="email" placeholder="Enter your email" />
         <label>Password:</label>
         <input
           name="password"
@@ -42,7 +43,6 @@ function RegistrationPage(props) {
           placeholder="* * * * * * * * *"
         />
         <button className="btn btn-success" type="submit">
-          {" "}
           Submit
         </button>
       </form>

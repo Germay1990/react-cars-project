@@ -17,11 +17,13 @@ function LoginPage(props) {
       })
       .then((res) => {
         console.log(res);
-        history.push("/");
+        history.push("/products");
       })
       .catch((err) => {
-        console.log(err);
+        alert(err.response.data);
       });
+      evt.target.reset();
+
   };
 
   return (

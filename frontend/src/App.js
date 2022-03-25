@@ -15,13 +15,13 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/">
-            <Content />
-          </Route>
-          <Route exact path="/registration">
             <RegistrationPage />
           </Route>
           <Route exact path="/login">
             <LoginPage />
+          </Route>
+          <Route exact path="/products">
+            <Content />
           </Route>
           <Route exact path="/editProduct/:id">
             <EditProduct />

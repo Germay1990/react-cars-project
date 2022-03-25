@@ -11,10 +11,10 @@ const {
 const { protect } = require("../middlewares/auth");
 
 //Get all products => protected
-// router.get("/", protect, getAllProducts);
+router.get("/", protect, getAllProducts);
 
 //Get all products
-router.get("/", getAllProducts);
+// router.get("/", getAllProducts);
 
 //Get product by id
 router.get("/:id", getProductById);
